@@ -1,0 +1,21 @@
+.userWrapper {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    width: 45%;
+}
+h3{
+    text-align: center;
+    font-size: larger;
+    text-decoration: underline;
+    text-shadow: 1px 1px lightskyblue;
+}
+.album-item a{
+    text-decoration: none;
+    color: green;
+
+}
+.post-item a{
+    text-shadow: -1px 1px lightskyblue;
+    text-decoration: none;
+    color: darkred;
+}

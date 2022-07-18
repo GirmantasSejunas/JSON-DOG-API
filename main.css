@@ -1,0 +1,92 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+header{
+    background-color: rgb(70, 220, 162);
+    margin: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+}
+.headerWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header button {
+    margin: 20px;
+    width: 15vh;
+    background-color: rgb(148, 179, 130);
+    border-radius: 20px;
+    height: 30px;
+}
+header input{
+    margin: 20px;
+    width: 15vh;
+    background-color: rgb(148, 179, 130);
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+}
+header nav ul{
+    display: flex;
+}
+header nav li{
+    list-style: none;
+    margin: 20px;
+    width: 15vh;
+    background-color: rgb(148, 179, 130);
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+}
+#container {
+    display: flex;
+    margin: 90px 20px 0 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.postDivElement{
+border: 2px solid black;
+border-radius: 5px;
+margin-bottom: 10px;
+padding: 15px;
+background-color: aquamarine;
+width: 24%;
+}
+#albumsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.albumItem{
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+}
+.albumImgWrapper img{
+    width: 150px;
+    height: 150px;
+
+}
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-items: center;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    margin: -10px;
+}

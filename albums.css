@@ -1,0 +1,32 @@
+
+
+#albums-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.album-item{
+    margin-bottom: 15px;
+    width: 40%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.album-item a{
+    text-decoration: none;
+    color: green;
+}
+.album-item div a{
+    color: red;
+    width: 25%;
+}
+.album-item h{
+    width: 45%;
+}
+.album-item img{
+    width: 150px;
+    height: 150px;
+
+}

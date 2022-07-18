@@ -1,0 +1,26 @@
+#postWrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.postDivElement{
+    display: grid;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: aquamarine;
+    width: 55%;
+
+}
+button{
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgb(233, 231, 221);
+    margin: 0 auto;
+}
+button:hover{
+    background-color: darkturquoise;
+    height: 35px;
+    width: 30%;
+}
