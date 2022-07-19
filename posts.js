@@ -4,6 +4,8 @@
 // console.log(postUserId)
 // let postWrapper = document.querySelector('#postWrapper')
 
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
 
 
 let queryParams = document.location.search;
@@ -17,6 +19,7 @@ let postsList = document.createElement('ol');
 
 postsWrapper.append(postsListTitle, postsList);
 
+headerFnc()
 
 function init(){
 
@@ -38,7 +41,7 @@ function renderPostsByUserId(){
         postsListTitle.textContent = `Posts of ${user.name}:`;
         posts.map(post => {
           let postItem = document.createElement('li');
-          postItem.innerHTML = `<a href="./post.html?post_id=${post.id}">${post.title}</a>`;
+          postItem.innerHTML = `<a href="./post.html?post_id=${post.id}">${firstLetterToUppercase(post.title)}</a>`;
           postsList.prepend(postItem);
        
         })
@@ -54,9 +57,8 @@ function renderAllPosts() {
     postsListTitle.textContent = 'All Posts:';
 
     posts.map(post => {
-      console.log(post.user.name)
           let postItem = document.createElement('li');
-          postItem.innerHTML = `<a href="./post.html?post_id=${post.id}">${post.title} (${post.user.name})</a>`;
+          postItem.innerHTML = `<a href="./post.html?post_id=${post.id}">${firstLetterToUppercase(post.title)} (${post.user.name})</a>`;
   
           postsList.prepend(postItem);
         })

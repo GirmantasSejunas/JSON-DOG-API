@@ -1,3 +1,6 @@
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
+
 let searchResults = document.querySelector('#search-results');
 let usersList = document.createElement('ul');
 let usersListTitle = document.createElement('h3');
@@ -12,6 +15,8 @@ searchResults.append(usersList, postsList, albumsList);
 usersList.before(usersListTitle);
 postsList.before(postsListTitle);
 albumsList.before(albumsListTitle);
+
+headerFnc()
 
 function init() {
   outerSearchForm();
@@ -117,7 +122,7 @@ function renderAllPosts(searchText) {
         postsListTitle.textContent = 'Posts:';
         posts.map(post => {
           let postData = {
-            content: post.title,
+            content: firstLetterToUppercase(post.title),
             href: `./post.html?post_id=${post.id}`,
             parentElement: postsList,
           }
@@ -139,9 +144,9 @@ function renderAllAlbums(searchText) {
       if (albums.length > 0) {
 
         albums.map(album => {
-          console.log(album.userId)
+          console.log(album.title)
           let albumData = {
-            content: album.title,
+            content: firstLetterToUppercase(album.title),
             href: `./album.html?album_id=${album.id}&album_userId=${album.userId}`,
             parentElement: albumsList
           };

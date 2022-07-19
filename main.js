@@ -1,7 +1,10 @@
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
+
 let containerElement = document.querySelector('#container')
 let albumsContainer = document.querySelector('#albumsContainer')
 
-
+headerFnc()
 fetch('https://jsonplaceholder.typicode.com/posts?_limit=12')
 .then(res => res.json())
 .then(posts => {
@@ -15,7 +18,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=12')
             
             let postTitle = post.title
             let postTitleElement = document.createElement('h2')
-            postTitleElement.textContent = postTitle
+            postTitleElement.textContent = firstLetterToUppercase(postTitle)
             
             let postAuthorElement = document.createElement('span')
             postAuthorElement.classList.add('postAuthorElement')
@@ -23,7 +26,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=12')
             
             let postBody = post.body
             let postBodyElement = document.createElement('p')
-            postBodyElement.textContent = postBody
+            postBodyElement.textContent = firstLetterToUppercase(postBody)
             
             let commentsDivElement = document.createElement('div')
             commentsDivElement.classList.add('commentsDivElement')
@@ -38,7 +41,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=12')
             fetch('https://jsonplaceholder.typicode.com/users/' + post.userId)
             .then(res => res.json())
             .then(user => {
-                postAuthorElement.innerHTML = `author is : <a href="./user.html?user_id=${user.id}">${user.name}</a>`
+                postAuthorElement.innerHTML = `Author is : <a href="./user.html?user_id=${user.id}">${user.name}</a>`
             })
 
 
@@ -59,13 +62,13 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=12')
                             commentDivItem.classList.add('commentsDivItem')
                             
                             let commentsTitleElement = document.createElement('h3')
-                            commentsTitleElement.textContent = comment.name
+                            commentsTitleElement.textContent = firstLetterToUppercase(comment.name)
                             
                             let commentsEmailElement = document.createElement('p')
                             commentsEmailElement.innerHTML = `<a href=""mailto:${comment.email}">${comment.email}</a>`
                             
                             let commentsBodyElement = document.createElement('p')
-                            commentsBodyElement.textContent = comment.body
+                            commentsBodyElement.textContent = firstLetterToUppercase(comment.body)
                             
                             
                             commentsDivElement.append(commentDivItem)
@@ -111,7 +114,7 @@ fetch('https://jsonplaceholder.typicode.com/albums/?_limit=20')
                   
                         let albumTitle = document.createElement('h3')
                         albumTitle.classList.add('albumTitle')
-                        albumTitle.innerHTML = `<a href="./album.html?album_id=${user.id}&album_title=${album.title}&album_userId=${album.userId}">${album.title}</a>`
+                        albumTitle.innerHTML = `<a href="./album.html?album_id=${user.id}&album_title=${album.title}&album_userId=${album.userId}">${firstLetterToUppercase(album.title)}</a>`
                 
                         let albumAuthor = document.createElement('span')
                         albumAuthor.classList.add('albumAuthor')

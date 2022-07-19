@@ -1,13 +1,17 @@
-
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
 
 let albumsWrapper = document.querySelector('#albums-wrapper');
 let albumsWrapperTitle = document.createElement('h2');
 document.body.prepend(albumsWrapperTitle);
 
+headerFnc()
+
 function init(){
 let queryParams = document.location.search;
 let urlParams = new URLSearchParams(queryParams);
 let userId = urlParams.get('user_id');
+
 
   
   if (userId) {
@@ -28,7 +32,7 @@ let userId = urlParams.get('user_id');
   
           let randomIndex = Math.floor(Math.random() * photos.length);
   
-          albumItem.innerHTML = `<h3><a href="./album.html?album_id=${album.id}&album_title=${album.title}&user_id=${album.userId}&user_name=${user.name}">${album.title}</a> (${photos.length})</h3>
+          albumItem.innerHTML = `<h3><a href="./album.html?album_id=${album.id}&album_title=${firstLetterToUppercase(album.title)}&user_id=${album.userId}&user_name=${user.name}">${album.title}</a> (${photos.length})</h3>
           <img src="${photos[randomIndex].thumbnailUrl}">`;
 
           albumsWrapper.prepend(albumItem);
@@ -54,9 +58,10 @@ let userId = urlParams.get('user_id');
           let user = album.user
           // let randomIndex = Math.floor(Math.random() *photos.length);
     
-                  albumItem.innerHTML = `<h3><a href="./album.html?album_id=${album.id}&album_title=${album.title}&album_userId=${album.userId}&user_name=${user.name}">${album.title}</a> (${album.photos.length})</h3>
-                                        <div>Album created by: <a href="./user.html?user_id=${user.id}">${user.name}</a></div>
-                                        <img src="${photo}">`;
+                  albumItem.innerHTML = `<h3><a href="./album.html?album_id=${album.id}&album_title=${album.title}&album_userId=${album.userId}&user_name=${user.name}">${firstLetterToUppercase(album.title)}</a> (${album.photos.length})</h3>
+                                        
+                  <div>Album created by: <a href="./user.html?user_id=${user.id}">${user.name}</a></div>
+                  <img src="${photo}">`;
 
                   albumsWrapper.prepend(albumItem);
                 })

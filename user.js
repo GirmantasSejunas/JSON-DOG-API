@@ -1,9 +1,14 @@
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
+
+
 let queryParams = document.location.search;
 let urlParams = new URLSearchParams(queryParams);
 let userId = urlParams.get('user_id');
 
 let divWrapperElement = document.querySelector('#wrapper')
-console.log(userId)
+
+headerFnc()
 
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
 .then(res => res.json())
@@ -70,8 +75,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
       let postItem = document.createElement('div');
       postItem.classList.add('post-item');
 
-      postItem.innerHTML = `<h4>${post.title}</h4>
-                            <p>${post.body}</p>
+      postItem.innerHTML = `<h4>${firstLetterToUppercase(post.title)}</h4>
+                            <p>${firstLetterToUppercase(post.body)}</p>
                             <a href="./posts.html?post_userId=${post.userId} ">Read More...</a>`;
 
       postsWrapper.append(postItem);
@@ -96,7 +101,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}/albums`)
     albums.map(album => {
       let albumItem = document.createElement('li');
       albumItem.classList.add('album-item');
-      albumItem.innerHTML = `<a href="./album.html?album_id=${album.id}&album_title=${album.title}&album_userId=${album.userId}">${album.title}</a>`;
+      albumItem.innerHTML = `<a href="./album.html?album_id=${album.id}&album_title=${album.title}&album_userId=${album.userId}">${firstLetterToUppercase(album.title)}</a>`;
 
       
       albumsList.prepend(albumItem);

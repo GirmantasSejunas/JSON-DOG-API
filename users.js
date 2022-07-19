@@ -1,3 +1,6 @@
+import headerFnc from './header.js'
+
+headerFnc()
 let divWrapperElement = document.querySelector('#wrapper')
 
 

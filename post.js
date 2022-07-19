@@ -1,8 +1,12 @@
+import headerFnc from './header.js'
+import {firstLetterToUppercase} from './function.js'
+
 let queryParams = document.location.search
 let urlParams = new URLSearchParams(queryParams)
 let postId = urlParams.get('post_id')
 let postWrapper = document.querySelector('#postWrapper')
 
+headerFnc()
 
 fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/?_expand=user`)
 .then(res => res.json())
@@ -15,11 +19,11 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/?_expand=user`)
 
     let postTitle = document.createElement('h3')
     postTitle.classList.add('postTitle')
-    postTitle.textContent = post.title
+    postTitle.textContent = firstLetterToUppercase(post.title)
     
     let postItem = document.createElement('p')
     postItem.classList.add('postItem')
-    postItem.textContent = post.body
+    postItem.textContent = firstLetterToUppercase(post.body)
     
     
     postWrapper.prepend(postAuthor,postTitle, postItem)
