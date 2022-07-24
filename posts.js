@@ -56,5 +56,12 @@ function renderAllPosts() {
     })
 }
 
+let postCreator = document.querySelector('#postCreator')
+
+postCreator.addEventListener('click', event =>{
+  event.preventDefault()
+  console.dir(event.target)
+})
+
 
 init()

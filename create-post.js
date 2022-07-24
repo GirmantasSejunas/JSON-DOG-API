@@ -28,8 +28,7 @@ submitBtn.addEventListener("click", event => {
     let authorName = event.target.form.elements.authors.value
     let postText = event.target.form.elements.postText.value
 
-
-        fetch('https://jsonplaceholder.typicode.com/posts', 
+        fetch(`https://jsonplaceholder.typicode.com/posts`, 
         {
         method: 'POST',
             body: JSON.stringify({
@@ -43,22 +42,34 @@ submitBtn.addEventListener("click", event => {
         })
 
 
-    .then((response) => response.json())
+    .then(res => res.json())
     .then(data => {
+        console.log(data)
+
+        fetch(`https://jsonplaceholder.typicode.com/users/${authorName}`)
+        .then (res => res.json())
+        .then (users =>{
+            console.log(users)
+                  
+                let newPostTitle = document.createElement('h2')
+                newPostTitle.textContent = data.title
+
+                let newPostText = document.createElement('p')
+                newPostText.textContent = data.body
+
+                
+                let newPostId = document.createElement('p')
+                newPostId.innerHTML = `post id: ${data.id}`
+
+                let newPostUserId = document.createElement('p')
+                newPostUserId.innerHTML = `user id: ${data.userId}`
+
+                let authorName = document.createElement('p')
+                authorName.innerHTML = `author : ${users.name}`
+                
+                outputWrapper.append(newPostTitle, newPostText, newPostUserId,authorName, newPostId)
+        })
 
 
-        let newPostTitle = document.createElement('h2')
-        newPostTitle.textContent = data.title
-
-        let newPostText = document.createElement('p')
-        newPostText.textContent = data.body
-
-        let newPostUserId = document.createElement('p')
-        newPostUserId.innerHTML = `user id: ${data.userId}`
-
-        let newPostId = document.createElement('p')
-        newPostId.innerHTML = `post id: ${data.id}`
-
-outputWrapper.append(newPostTitle, newPostText, newPostUserId, newPostId)
     })
 })
