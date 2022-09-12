@@ -3,7 +3,7 @@ function headerFnc() {
   let navigationItems = [
     {
       title: 'Home',
-      path: 'main.html',
+      path: 'index.html',
     },
     {
       title: 'Users',
